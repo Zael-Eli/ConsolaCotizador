@@ -1,0 +1,223 @@
+<style>
+
+  *{
+    font-family: 'Open Sans', sans-serif;
+    font-size:14px;
+  }
+  
+    .contenedor{
+      background-color: #F4F6F6;
+      display: grid;
+      height: 100vh;
+      grid-template-areas: "header header"
+                           "siderbar main"
+                           "footer  footer";
+      grid-template-rows: 80px 1fr 80px;
+      grid-template-columns: 200px 2fr;
+  }
+  
+  .header{
+    display: flex;
+    flex-direction:row;
+    justify-content:space-around;
+    background-color: #2e86c1;
+    color: white;
+    grid-area: header;
+    position: fixed;
+    width: 100%;
+    height: 10%;
+   
+  }
+  
+  .sidebar{
+    background-color:#0e1515;
+    color: white;
+    grid-area: siderbar;
+    display: flex;
+    flex-direction: column;
+    overflow-y:scroll;
+    position: fixed;
+    width: 14.7%;
+    height: 98%;
+  }
+  
+  .main{
+    background-color: #fff;
+    grid-area: main;
+    margin: 1% 2% 0% 2%;
+    box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.1); 
+    border-radius: 20px;
+  }
+
+  
+  .footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding:8px;
+    background-color:  #0e1515 ;
+    grid-area: footer;
+    position: fixed;
+    width:100%;
+    height:5%;
+    top: 93%;
+    color:white;
+  }
+  
+  a{
+    all: unset;
+    display: flex;
+    flex-direction: row;
+    justify-content:left;
+    color:#B2BABB;
+    font-size: 12px;
+    padding: 10px;
+    border-radius: 20px;
+    
+  }
+  
+  a:hover {
+    all: unset;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 10px;
+    border: rgb(107, 107, 106) 1px solid;
+    transform: scale(0.9);    
+   transition: all 300ms;  
+  }
+  
+  .logo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .sesion{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+    align-items: center;
+  }
+                                          
+  .logo{
+    margin: 10px 10px 10px 10px;
+  }
+
+  .titlemenu{
+    margin: 30px 0px 40px 65px;
+  }
+  
+  
+  </style>
+  
+  <div class="contenedor">
+            <div class="header">
+              <div class="logo">
+                  <img  width="60" src="https://www.tsastun.com.mx/assets/logo.png" alt="" (click)="selectfunction('inicio')">
+              <p>&nbsp;&nbsp;&nbsp;Consola de Administración</p>
+            </div>
+            <div class="sesion">
+                <label for="">Administrador&nbsp;&nbsp;&nbsp;</label>
+                <div>
+                <img (click)="getInfoUsr()" width="20" src="https://cdn-icons-png.flaticon.com/512/552/552721.png" alt="">
+                </div>
+                <label for="">&nbsp;&nbsp;&nbsp;Cerrar Sesión&nbsp;&nbsp;&nbsp;</label>
+                <a href="http://localhost:4200"> <img width="20" src="https://cdn-icons-png.flaticon.com/512/3596/3596149.png" alt=""></a>
+            </div>
+          </div>
+            <div class="sidebar">
+              <h2 class="titlemenu">MENÚ</h2>
+            <a (click)="selectfunction('temas')">
+              <svg width="20px" height="20px" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="48" height="48" fill="white" fill-opacity="0.01"/>
+                <path d="M23 4.00012H4V26.0001H23V4.00012Z" fill="#B2BABB" stroke="#000000" stroke-width="4" stroke-linejoin="round"/>
+                <path d="M44 34.0001H4V43.0001H44V34.0001Z" fill="#B2BABB" stroke="#000000" stroke-width="4" stroke-linejoin="round"/>
+                <path d="M44 4.00012H31V12.0001H44V4.00012Z" fill="#B2BABB" stroke="#000000" stroke-width="4" stroke-linejoin="round"/>
+                <path d="M44 18.0001H31V26.0001H44V18.0001Z" fill="#B2BABB" stroke="#000000" stroke-width="4" stroke-linejoin="round"/>
+                </svg>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Temas</a>
+            <a (click)="selectfunction('color')">
+              <div>
+                <svg fill="#B2BABB" width="20px" height="20px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M8 .5C3.58.5 0 3.86 0 8s3.58 7.5 8 7.5c4.69 0 1.04-2.83 2.79-4.55.76-.75 1.63-.87 2.44-.87.37 0 .73.03 1.06.03.99 0 1.72-.23 1.72-2.1C16 3.86 12.42.5 8 .5zm6.65 8.32c-.05.01-.16.02-.37.02-.14 0-.29 0-.45-.01-.19 0-.39-.01-.61-.01-.89 0-2.19.13-3.32 1.23-1.17 1.16-.9 2.6-.74 3.47.03.18.08.44.09.6-.16.05-.52.13-1.26.13-3.72 0-6.75-2.8-6.75-6.25S4.28 1.75 8 1.75s6.75 2.8 6.75 6.25c0 .5-.06.74-.1.82z"/><path d="M5.9 9.47c-1.03 0-1.86.8-1.86 1.79s.84 1.79 1.86 1.79 1.86-.8 1.86-1.79-.84-1.79-1.86-1.79zm0 2.35c-.35 0-.64-.25-.64-.56s.29-.56.64-.56.64.25.64.56-.29.56-.64.56zm-.2-4.59c0-.99-.84-1.79-1.86-1.79s-1.86.8-1.86 1.79.84 1.79 1.86 1.79 1.86-.8 1.86-1.79zm-1.86.56c-.35 0-.64-.25-.64-.56s.29-.56.64-.56.64.25.64.56-.29.56-.64.56zM7.37 2.5c-1.03 0-1.86.8-1.86 1.79s.84 1.79 1.86 1.79 1.86-.8 1.86-1.79S8.39 2.5 7.37 2.5zm0 2.35c-.35 0-.64-.25-.64-.56s.29-.56.64-.56.64.25.64.56-.29.56-.64.56zm2.47 1.31c0 .99.84 1.79 1.86 1.79s1.86-.8 1.86-1.79-.84-1.79-1.86-1.79-1.86.8-1.86 1.79zm2.5 0c0 .31-.29.56-.64.56s-.64-.25-.64-.56.29-.56.64-.56.64.25.64.56z"/></svg>
+                </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Color</a>
+            <a (click)="selectfunction('formularios')">
+              <div class="WhatsApp_icon">
+                <svg width="20px" height="20px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                  <path d="m 2.5 2 c -1.367188 0 -2.5 1.132812 -2.5 2.5 v 7 c 0 1.367188 1.132812 2.5 2.5 2.5 h 11 c 1.367188 0 2.5 -1.132812 2.5 -2.5 v -7 c 0 -1.367188 -1.132812 -2.5 -2.5 -2.5 z m 0 2 h 1 c 0.277344 0 0.5 0.222656 0.5 0.5 v 1 c 0 0.277344 -0.222656 0.5 -0.5 0.5 h -1 c -0.277344 0 -0.5 -0.222656 -0.5 -0.5 v -1 c 0 -0.242188 0.171875 -0.445312 0.398438 -0.488281 c 0.03125 -0.007813 0.066406 -0.011719 0.101562 -0.011719 z m 3 0 h 1 c 0.277344 0 0.5 0.222656 0.5 0.5 v 1 c 0 0.277344 -0.222656 0.5 -0.5 0.5 h -1 c -0.277344 0 -0.5 -0.222656 -0.5 -0.5 v -1 c 0 -0.277344 0.222656 -0.5 0.5 -0.5 z m 3 0 h 1 c 0.277344 0 0.5 0.222656 0.5 0.5 v 1 c 0 0.277344 -0.222656 0.5 -0.5 0.5 h -1 c -0.277344 0 -0.5 -0.222656 -0.5 -0.5 v -1 c 0 -0.277344 0.222656 -0.5 0.5 -0.5 z m 3 0 h 1 c 0.277344 0 0.5 0.222656 0.5 0.5 v 1 c 0 0.277344 -0.222656 0.5 -0.5 0.5 h -1 c -0.277344 0 -0.5 -0.222656 -0.5 -0.5 v -1 c 0 -0.277344 0.222656 -0.5 0.5 -0.5 z m -8 3 h 1 c 0.277344 0 0.5 0.222656 0.5 0.5 v 1 c 0 0.277344 -0.222656 0.5 -0.5 0.5 h -1 c -0.277344 0 -0.5 -0.222656 -0.5 -0.5 v -1 c 0 -0.277344 0.222656 -0.5 0.5 -0.5 z m 3 0 h 1 c 0.277344 0 0.5 0.222656 0.5 0.5 v 1 c 0 0.277344 -0.222656 0.5 -0.5 0.5 h -1 c -0.277344 0 -0.5 -0.222656 -0.5 -0.5 v -1 c 0 -0.277344 0.222656 -0.5 0.5 -0.5 z m 3 0 h 1 c 0.277344 0 0.5 0.222656 0.5 0.5 v 1 c 0 0.277344 -0.222656 0.5 -0.5 0.5 h -1 c -0.277344 0 -0.5 -0.222656 -0.5 -0.5 v -1 c 0 -0.277344 0.222656 -0.5 0.5 -0.5 z m 3 0 h 1 c 0.277344 0 0.5 0.222656 0.5 0.5 v 1 c 0 0.277344 -0.222656 0.5 -0.5 0.5 h -1 c -0.277344 0 -0.5 -0.222656 -0.5 -0.5 v -1 c 0 -0.277344 0.222656 -0.5 0.5 -0.5 z m -10 3 h 1 c 0.277344 0 0.5 0.222656 0.5 0.5 v 1 c 0 0.277344 -0.222656 0.5 -0.5 0.5 h -1 c -0.277344 0 -0.5 -0.222656 -0.5 -0.5 v -1 c 0 -0.277344 0.222656 -0.5 0.5 -0.5 z m 3 0 h 4 c 0.277344 0 0.5 0.222656 0.5 0.5 v 1 c 0 0.277344 -0.222656 0.5 -0.5 0.5 h -4 c -0.277344 0 -0.5 -0.222656 -0.5 -0.5 v -1 c 0 -0.277344 0.222656 -0.5 0.5 -0.5 z m 6 0 h 1 c 0.277344 0 0.5 0.222656 0.5 0.5 v 1 c 0 0.277344 -0.222656 0.5 -0.5 0.5 h -1 c -0.277344 0 -0.5 -0.222656 -0.5 -0.5 v -1 c 0 -0.277344 0.222656 -0.5 0.5 -0.5 z m 0 0" fill="#B2BABB"/>
+              </svg>
+                </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Formularios</a>
+            <a (click)="selectfunction('textos')">
+              <div class="WhatsApp_icon">
+                <svg fill="#B2BABB" width="20px" height="20px" viewBox="0 0 1920 1920" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1664 1664v128H0v-128h1664Zm256-384v128H0v-128h1920Zm-256-384v128H0V896h1664Zm256-384v128H0V512h1920Zm-256-384v128H0V128h1664Z" fill-rule="evenodd"/>
+              </svg>
+                </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Textos</a>
+            <a (click)="selectfunction('titulos')">
+              <div class="WhatsApp_icon">
+                <svg width="20px" height="20px" viewBox="0 0 24 24" fill="#B2BABB" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 6V19M6 6H18" stroke="#B2BABB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Titulos</a>
+            <a (click)="selectfunction('logo')">
+              <div class="WhatsApp_icon">
+                <svg fill="#B2BABB" width="25px" height="25px" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M128 209c-44.735 0-81-36.265-81-81s36.265-81 81-81 81 36.265 81 81-36.265 81-81 81zm22.53-141.14A64.379 64.379 0 0 0 128.5 64a64.352 64.352 0 0 0-22.917 4.19 1317.969 1317.969 0 0 0 21.079 22.104c.77.79 2.042.806 2.831.038 0 0 12.798-12.235 21.038-22.472zm0 121.635c-8.239-10.237-21.05-22.665-21.05-22.665a1.975 1.975 0 0 0-2.806.041s-10.22 10.605-21.09 22.294a64.352 64.352 0 0 0 22.916 4.19 64.379 64.379 0 0 0 22.03-3.86zM89.908 76.531s-26.02 17.694-26.02 51.538c0 33.845 26.02 53.465 26.02 53.465l38.09-39.787 38.376 38.29s27.389-21.385 27.389-52.066c0-30.682-27.739-51.678-27.739-51.678l-25.672 26.32 13.39 13.837 13.112-11.68s6.936 10.757 7.035 23.153c.098 12.396-6.653 24.904-6.653 24.904l-39.191-38.937-37.495 38.69s-7.684-11.61-7.65-25.002c.035-13.393 7.008-24.966 7.008-24.966l12.75 12.488 14.996-12.609-27.746-25.96z" fill-rule="evenodd"/>
+              </svg>
+                </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Logo</a>
+                <a (click)="selectfunction('imagenes')">
+                  <div class="WhatsApp_icon">
+                    <svg width="20px" height="20px" viewBox="0 -2 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                      <defs>
+                  
+                  </defs>
+                      <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                          <g id="Dribbble-Light-Preview" transform="translate(-140.000000, -3921.000000)" fill="#B2BABB">
+                              <g id="icons" transform="translate(56.000000, 160.000000)">
+                                  <path d="M98.141,3768.755 L98.129,3768.768 L98.102,3768.74 L98.141,3768.755 Z M98.143,3768.756 L98.141,3768.755 L98.156,3768.74 L98.143,3768.756 Z M102,3772.752 L98.129,3768.768 L96.74,3770.171 L92.118,3765.542 L92.106,3765.558 L91.977,3765.542 L86,3771.407 L86,3763 L102,3763 L102,3772.752 Z M95.586,3775 L98.2,3772.386 L100.814,3775 L95.586,3775 Z M92.758,3775 L86.297,3775 L92.11,3768.771 L95.34,3772.21 L92.758,3775 Z M84,3777 L104,3777 L104,3761 L84,3761 L84,3777 Z" id="image_picture-[#968]">
+                  </path>
+                              </g>
+                          </g>
+                      </g>
+                  </svg>
+                  </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Imagenes</a>
+                    <a (click)="selectfunction('imagenes')">
+                      <div class="WhatsApp_icon">
+                        <svg fill="#B2BABB" width="25px" height="25px" viewBox="-3.5 0 19 19" xmlns="http://www.w3.org/2000/svg" class="cf-icon-svg"><path d="M11.16 16.153a.477.477 0 0 1-.476.475H1.316a.477.477 0 0 1-.475-.475V3.046a.477.477 0 0 1 .475-.475h6.95l2.893 2.893zm-1.11-9.924H8.059a.575.575 0 0 1-.574-.574V3.679H1.95v11.84h8.102zM3.907 4.92a1.03 1.03 0 1 0 1.029 1.03 1.03 1.03 0 0 0-1.03-1.03zm4.958 3.253h-5.87v1.108h5.87zm0 2.354h-5.87v1.109h5.87zm0 2.354h-5.87v1.109h5.87z"/></svg>
+                        </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Paginas
+                      </a>
+
+            </div>
+            
+            <div class="main">
+              <div class="carruselC" *ngIf="seleccion == 'inicio'">
+                <div class="modalCC">
+                  <h2 class="carrh2">Personaliza tu experiencia</h2>
+                </div>      
+                <div class="ulCC">
+                  <div class="liCC">
+                    <div class="imgMCC1 carrdiv">
+                      <img class="carimg" src="https://indiepropub.com/wp-content/uploads/2022/11/Beneficios-de-contar-con-un-seguro-de-auto.jpeg" alt="">
+                    </div>
+                    <div class="imgMCC2 carrdiv">
+                      <img class="carimg" src="https://www.tecnogus.com.co/wp-content/uploads/2022/12/Seguros-de-auto-1.jpg" alt="">
+                    </div>
+                    <div class="imgMCC3 carrdiv">
+                      <img class="carimg" src="https://www.altonivel.com.mx/wp-content/uploads/2022/03/seguro-de-auto.jpg">
+                    </div>
+                    <div class="imgMCC4 carrdiv">
+                      <img class="carimg" src="https://cdn2.atraccion360.com/media/aa/seguros-para-autos-fronterizos.jpg">
+                    </div>
+                   </div>
+                </div>
+               </div> 
+              </div>
+              <app-temas *ngIf="seleccion == 'temas'"></app-temas>
+              <app-colores *ngIf="seleccion == 'color'"></app-colores>
+              <app-logos *ngIf="seleccion == 'logo'"></app-logos>
+              <app-textos *ngIf="seleccion == 'textos'"></app-textos>
+              <div class="footer"> 
+            <div class="contacto">
+            <h3>Tsastún</h3>
+            </div>
+  
+  </div>
